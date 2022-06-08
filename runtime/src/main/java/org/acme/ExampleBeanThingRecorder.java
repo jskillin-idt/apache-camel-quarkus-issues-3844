@@ -6,9 +6,9 @@ import java.util.function.Supplier;
 import org.acme.config.ExampleConfig;
 
 @Recorder
-public class ExampleRouteBuilderRecorder {
-  public Supplier<ExampleRouteBuilder> getExampleRouteBuilderSupplier(
+public class ExampleBeanThingRecorder {
+  public Supplier<ExampleBeanThing> getExampleBeanThingSupplier(
       final List<ExampleConfig> exampleConfigs) {
-    return () -> new ExampleRouteBuilder(exampleConfigs);
+    return () -> new ExampleBeanThing(exampleConfigs);
   }
 }

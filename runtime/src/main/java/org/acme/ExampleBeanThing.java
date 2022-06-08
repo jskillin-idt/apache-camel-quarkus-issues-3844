@@ -2,12 +2,11 @@ package org.acme;
 
 import java.util.List;
 import org.acme.config.ExampleConfig;
-import org.apache.camel.builder.RouteBuilder;
 
-public class ExampleRouteBuilder extends RouteBuilder {
+public class ExampleBeanThing implements BeanThing {
   private final List<ExampleConfig> exampleConfigs;
 
-  public ExampleRouteBuilder(List<ExampleConfig> exampleConfigs) {
+  public ExampleBeanThing(List<ExampleConfig> exampleConfigs) {
     this.exampleConfigs = exampleConfigs;
   }
 

@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import javax.enterprise.context.ApplicationScoped;
 import org.acme.builditem.ExampleBuildItem;
 import org.acme.config.ExampleConfig;
-import org.apache.camel.builder.RouteBuilder;
 
 class ExampleProcessor {
 
@@ -25,7 +24,7 @@ class ExampleProcessor {
   @Record(STATIC_INIT)
   void produceExampleConfigBean(
       final List<ExampleBuildItem> exampleBuildItems,
-      final ExampleRouteBuilderRecorder recorder,
+      final ExampleBeanThingRecorder recorder,
       final BuildProducer<SyntheticBeanBuildItem> syntheticBeans) {
 
     if (!exampleBuildItems.isEmpty()) {
@@ -36,12 +35,12 @@ class ExampleProcessor {
               .collect(Collectors.toUnmodifiableList());
 
       syntheticBeans.produce(SyntheticBeanBuildItem
-          .configure(ExampleRouteBuilder.class)
+          .configure(ExampleBeanThing.class)
           .types(
-              RouteBuilder.class)
+              BeanThing.class)
           .unremovable()
           .scope(ApplicationScoped.class)
-          .supplier(recorder.getExampleRouteBuilderSupplier(configs))
+          .supplier(recorder.getExampleBeanThingSupplier(configs))
           .done());
     }
   }
