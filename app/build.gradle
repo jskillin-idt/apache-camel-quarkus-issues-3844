@@ -1,9 +1,10 @@
 plugins {
-	id 'java'
-	id 'io.quarkus' version '2.9.2.Final'
+    id 'java'
+    id 'io.quarkus'
+    id 'org.kordamp.gradle.jandex'
 }
 
-group 'org.acme' 
+group 'org.acme'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -11,7 +12,13 @@ repositories {
 }
 
 dependencies {
-    implementation platform("io.quarkus:quarkus-bom:2.9.2.Final")
+    implementation platform("io.quarkus:quarkus-bom:${quarkusVersion}")
     implementation project(':runtime')
     testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-test-common'
+    testImplementation 'org.apache.camel.quarkus:camel-quarkus-bean:2.9.0'
+    testImplementation 'org.apache.camel.quarkus:camel-quarkus-direct:2.9.0'
+    testImplementation 'org.apache.camel.quarkus:camel-quarkus-jackson:2.9.0'
+    testImplementation 'org.apache.camel.quarkus:camel-quarkus-log:2.9.0'
+    testImplementation 'org.apache.camel.quarkus:camel-quarkus-rest:2.9.0'
 }

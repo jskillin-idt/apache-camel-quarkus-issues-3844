@@ -4,7 +4,9 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
-        id 'io.quarkus.extension' version "${quarkusVersion}" 
+        id 'io.quarkus' version "${quarkusVersion}"
+        id 'io.quarkus.extension' version "${quarkusVersion}"
+        id 'org.kordamp.gradle.jandex' version '0.12.0'
     }
 }
 

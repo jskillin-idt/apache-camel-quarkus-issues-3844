@@ -1,10 +1,11 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'io.quarkus.extension' 
+    id 'io.quarkus.extension'
+    id 'org.kordamp.gradle.jandex'
 }
 
-group 'org.acme' 
+group 'org.acme'
 version '1.0-SNAPSHOT'
 description = 'Greeting extension'
 evaluationDependsOn(':deployment')
@@ -15,4 +16,6 @@ quarkusExtension {
 
 dependencies {
     implementation platform("io.quarkus:quarkus-bom:${quarkusVersion}")
+    api 'io.quarkus:quarkus-core'
+    api 'org.apache.camel.quarkus:camel-quarkus-core:2.9.0'
 }
